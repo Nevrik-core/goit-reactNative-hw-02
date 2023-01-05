@@ -3,7 +3,7 @@
     "name": "secondTry",
     "slug": "secondTry",
     "version": "1.0.0",
-    "orientation": "regular",
+    "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {

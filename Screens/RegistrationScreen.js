@@ -46,7 +46,6 @@ export default function SignUp() {
 
 
   const [dimensions, setDimensions] = useState(Dimensions.get("window").width - 20 * 2);
-   
   useEffect(() => {
 
     const onChange = () => {
@@ -60,6 +59,7 @@ export default function SignUp() {
 
   const keyboardHide = () => {
     Keyboard.dismiss();
+    setIsShowKeyboard(false);
     
   }
 
@@ -89,7 +89,7 @@ export default function SignUp() {
             <View
               style={{
                 ...styles.formBg,
-                marginTop: isShowKeyboard ? -200 : 0
+                marginTop: isShowKeyboard ? 100 : 300,
               }}>
               <View style={styles.avatar}>
                  <TouchableOpacity>
@@ -165,12 +165,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   imageBg: {
-    flex: 1,
-    justifyContent: "flex-end",
-    resizeMode: 'cover',
+    width: Dimensions.get('window').width,
+  height: Dimensions.get('window').height,
   },
   formBg: {
-    height: 550,
+    height: 750,
     paddingTop: 50,
     top: 50,
     borderTopLeftRadius: 25,

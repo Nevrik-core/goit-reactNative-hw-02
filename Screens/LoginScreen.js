@@ -58,9 +58,12 @@ export default function Login() {
     return () => Dimensions.removeEventListener('change', onChange);
   }, []);
 
+ const [state, setState] = useState(initialState);
+  const [isShowKeyboard, setIsShowKeyboard] = useState(false);
+
   const keyboardHide = () => {
     Keyboard.dismiss();
-    
+    setIsShowKeyboard(false);
   }
 
   const onSubmit = () => {
@@ -69,8 +72,6 @@ export default function Login() {
     console.log(state);
   }
 
-  const [state, setState] = useState(initialState);
-  const [isShowKeyboard, setIsShowKeyboard] = useState(false);
 
  if (!fontsLoaded) {
     return null;
@@ -88,7 +89,7 @@ export default function Login() {
             <View
               style={{
                 ...styles.formBg,
-                marginTop: isShowKeyboard ? 100 : 323,
+                marginTop: isShowKeyboard ? 200 : 400,
               }}>
               
               <Text style={styles.title}>Log in</Text>
@@ -151,12 +152,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   imageBg: {
-    flex: 1,
-    justifyContent: "flex-end",
-    resizeMode: 'cover',
+   width: Dimensions.get('window').width,
+  height: Dimensions.get('window').height
   },
   formBg: {
-    height: 400,
+    height: 600,
     paddingTop: 30,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
