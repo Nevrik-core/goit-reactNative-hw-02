@@ -24,13 +24,12 @@ const initialState = {
 }
 
 
-export default function Login() {
-
+export default function Login({navigation}) {
   /////Fonts/////
   const [fontsLoaded] = useFonts({
-    RobotoMedium: require("../assets/fonts/Roboto-Medium.ttf"),
-    RobotoRegular: require("../assets/fonts/Roboto-Regular.ttf"),
-    RobotoBold: require("../assets/fonts/Roboto-Bold.ttf"),
+    RobotoMedium: require("../../assets/fonts/Roboto-Medium.ttf"),
+    RobotoRegular: require("../../assets/fonts/Roboto-Regular.ttf"),
+    RobotoBold: require("../../assets/fonts/Roboto-Bold.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -82,7 +81,7 @@ export default function Login() {
       <View style={styles.container} onLayout={onLayoutRootView}>
         <ImageBackground
           style={styles.imageBg}
-          source={require("../assets/images/PhotoBG.jpeg")}>
+          source={require("../../assets/images/PhotoBG.jpeg")}>
           
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}>
@@ -132,9 +131,9 @@ export default function Login() {
                   <Text style={styles.buttonTitle}>Log in</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.bottomTextContainer}>
+                <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.bottomTextContainer}>
                   <Text style={styles.bottomText}>
-                    Have no account? Sign up
+                    Have no account? <Text style={{color: '#ff6347'}}>Sign up</Text> 
                   </Text>
                 </TouchableOpacity>
               </View>

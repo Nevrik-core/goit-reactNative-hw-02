@@ -26,13 +26,13 @@ const initialState = {
 }
 
 
-export default function SignUp() {
+export default function SignUp({navigation}) {
 
   /////Fonts/////
   const [fontsLoaded] = useFonts({
-    RobotoMedium: require("../assets/fonts/Roboto-Medium.ttf"),
-    RobotoRegular: require("../assets/fonts/Roboto-Regular.ttf"),
-    RobotoBold: require("../assets/fonts/Roboto-Bold.ttf"),
+    RobotoMedium: require("../../assets/fonts/Roboto-Medium.ttf"),
+    RobotoRegular: require("../../assets/fonts/Roboto-Regular.ttf"),
+    RobotoBold: require("../../assets/fonts/Roboto-Bold.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -81,7 +81,7 @@ export default function SignUp() {
       <View style={styles.container} onLayout={onLayoutRootView}>
         <ImageBackground
           style={styles.imageBg}
-          source={require("../assets/images/PhotoBG.jpeg")}>
+          source={require("../../assets/images/PhotoBG.jpeg")}>
           
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}>
@@ -93,7 +93,7 @@ export default function SignUp() {
               }}>
               <View style={styles.avatar}>
                  <TouchableOpacity>
-                <Image style={styles.addButton} source={require('../assets/images/add.png')}/>
+                <Image style={styles.addButton} source={require('../../assets/images/add.png')}/>
                 </TouchableOpacity>
               </View>
              
@@ -145,9 +145,9 @@ export default function SignUp() {
                   <Text style={styles.buttonTitle}>Registration</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.bottomTextContainer}>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.bottomTextContainer}>
                   <Text style={styles.bottomText}>
-                    Already have an account? Sign in
+                    Already have an account? <Text style={{color: '#ff6347'}}>Sign in </Text>
                   </Text>
                 </TouchableOpacity>
               </View>

@@ -1,21 +1,29 @@
-import LogIn from './Screens/LoginScreen';
-import SignUp from './Screens/RegistrationScreen';
+
+import { NavigationContainer } from '@react-navigation/native';
+
 import { View, StyleSheet } from 'react-native';
+
+import {useRoute} from "./router"
+
+console.log("Project loaded");
+
+
+
+
 
 export default function App() {
 
+  const routing = useRoute(true)
  
   return (
-    <View style={styles.container}>
-      {/* <LogIn/> */}
-      <SignUp/>
-    </View>
+    <NavigationContainer>
+      {routing}
+      
+    </NavigationContainer>
     
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
+
+
+
